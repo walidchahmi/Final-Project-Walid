@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final-Project-Walid-Chahmi</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<div id="checkout-modal" class="checkout-modal">
+    <div class="checkout-content">
+        <span class="checkout-close" onclick="closeCheckoutModal()">&times;</span>
+        <h2>Finaliser la commande</h2>
+        <form id="checkout-form">
+            <label>Nom complet</label>
+            <input type="text" required placeholder="Votre nom complet">
+
+            <label>Adresse e-mail</label>
+            <input type="email" required placeholder="exemple@email.com">
+
+            <label>Adresse de livraison</label>
+            <input type="text" required placeholder="Votre adresse">
+
+            <button type="submit">Confirmer la commande</button>
+        </form>
+    </div>
+</div>
+<body>
+    <section id="header">
+        <a href="javascript:void(0);" onclick="scrollToTop()">
+            <img src="images/about/logo-gomycode-550x550-removebg-preview.png" class="logo" alt="Logo"
+                style="width: 200px;">
+        </a>
+        <script>
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+        </script>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="shop.html">Boutique</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html"> À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag">
+                    <a href="cart.html">
+                        <i class="far fa-shopping-bag"></i>
+                        <span id="cart-count"
+                            style="background:red;color:white;padding:2px 6px;border-radius:50%;font-size:12px;position:absolute;top:0;right:-10px;">0</span>
+                    </a>
+                </li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html" style="position: relative;">
+                <i class="far fa-shopping-bag"></i>
+                <span id="cart-count-mobile"
+                    style="background:red;color:white;padding:2px 6px;border-radius:50%;font-size:12px;position:absolute;top:-8px;right:-10px;">0</span>
+            </a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <section id="page-header1" class="about-header">
+        <h2>#Inscription</h2>
+        <p>Ajoutez votre code promo et profitez de remises exclusives sur nos <span>#GOMYCODEBooks</span> !</p>
+    </section>
+    <div id="main-content">
+    <section id="cart" class="section-p1">
+        <div id="cart-items" class="cart-container"></div>
+        <div id="cart-summary" class="cart-summary">
+            <h3>Total : <span id="cart-total">0 TND</span></h3>
+        </div>
+    </section>
+    <section id="cart-add" class="section-p1">
+        <div class="coupon">
+            <h3>Appliquer un coupon</h3>
+            <div>
+                <input type="text" id="coupon-code" placeholder="Entrez votre coupon">
+                <button class="normal" onclick="applyCoupon()">Appliquer</button>
+            </div>
+            <p id="coupon-message"></p>
+        </div>
+        <div class="subtotal">
+            <h3>Total du panier</h3>
+            <table>
+                <tr>
+                    <td>Sous-total du panier</td>
+                    <td id="subtotal-amount">DT 0</td>
+                </tr>
+                <tr>
+                    <td>Livraison</td>
+                    <td>Gratuite</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong id="total-amount">DT 0</strong></td>
+                </tr>
+            </table>
+            <button id="checkout-button" onclick="redirectToCheckout()">Passer à la caisse</button>
+        </div>
+    </section>
+    </div>
+    <hr>
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="images/about/logo-gomycode-550x550-removebg-preview.png" alt="GOMYCODE Logo"
+                style="width: 100px;">
+            <h4>Contact</h4>
+            <p><strong>Adresse :</strong> 2 Rue de Syrie, Lafayette, Tunis, Tunisie</p>
+            <p><strong>Téléphone :</strong> +216 71 902 101</p>
+            <p><strong>Heures :</strong> 09:00 - 18:00, Lundi à Samedi</p>
+            <div class="follow">
+                <h4>Suivez-nous</h4>
+                <div class="icon">
+                    <a href="https://www.facebook.com/gomycode" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/gomycode/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/gomycode/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/c/GOMYCODE" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>À propos</h4>
+            <a href="#">Notre mission</a>
+            <a href="#">Nos campus</a>
+            <a href="#">Rejoindre GOMYCODE</a>
+            <a href="#">Conditions générales</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="col">
+            <h4>Liens utiles</h4>
+            <a href="#">S'inscrire</a>
+            <a href="#">Nos formations</a>
+            <a href="#">Événements</a>
+            <a href="#">FAQ</a>
+            <a href="#">Support</a>
+        </div>
+        <div class="col install">
+            <h4>Apprends partout</h4>
+            <p>Disponible sur mobile bientôt</p>
+            <div class="row">
+                <img src="images/pay/app.jpg" alt="">
+                <img src="images/pay/play.jpg" alt="">
+            </div>
+            <p>Plateforme sécurisée</p>
+            <img src="images/pay/pay.png" alt="">
+        </div>
+        <div class="copyright">
+            <p>© 2025 GOMYCODE. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const cartItemsContainer = document.getElementById('cart-items');
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p>Votre panier est vide.</p>';
+        } else {
+            cart.forEach(item => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('cart-item');
+                productElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" />
+                    <h3>${item.name}</h3>
+                    <p>Prix : ${item.price} TND</p>
+                    <p>Quantité : ${item.quantity}</p>
+                    <hr />
+                `;
+                cartItemsContainer.appendChild(productElement);
+            });
+        }
+    </script>
+    <script>
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const count = cart.reduce((total, item) => total + parseInt(item.quantity), 0);
+
+            const cartCountElement = document.getElementById('cart-count');
+            const cartCountMobile = document.getElementById('cart-count-mobile');
+
+            if (cartCountElement) {
+                cartCountElement.innerText = count;
+            }
+            if (cartCountMobile) {
+                cartCountMobile.innerText = count;
+            }
+        }
+    </script>
+</body>
+
+</html>

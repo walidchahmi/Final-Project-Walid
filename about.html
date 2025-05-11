@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Final-Project-Walid-Chahmi</title>
+</head>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section id="header">
+        <a href="javascript:void(0);" onclick="scrollToTop()">
+            <img src="images/about/logo-gomycode-550x550-removebg-preview.png" class="logo" alt="Logo"
+                style="width: 200px;">
+        </a>
+        <script>
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+        </script>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="shop.html"> Boutique</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a class="active" href="about.html"> À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag">
+                    <a href="cart.html">
+                        <i class="far fa-shopping-bag"></i>
+                        <span id="cart-count"
+                            style="background:red;color:white;padding:2px 6px;border-radius:50%;font-size:12px;position:absolute;top:0;right:-10px;">0</span>
+                    </a>
+                </li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html" style="position: relative;">
+                <i class="far fa-shopping-bag"></i>
+                <span id="cart-count-mobile"
+                    style="background:red;color:white;padding:2px 6px;border-radius:50%;font-size:12px;position:absolute;top:-8px;right:-10px;">0</span>
+            </a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <section id="page-header" class="about-header">
+        <h2><b>#GOMYCODEBooks</b></h2>
+        <p>Découvrez une nouvelle manière d'apprendre la tech grâce à nos livres de formation GOMYCODE.</p>
+    </section>
+
+    <section id="about-head" class="section-p1">
+        <img src="images/products/gomy.png" alt="GOMYCODE Books">
+        <div>
+            <h2>Qui sommes-nous ?</h2>
+            <p>GOMYCODE est une startup EdTech innovante qui propose des livres de formation en développement web, data
+                science, design et autres compétences numériques. Fondée en Tunisie, notre mission est d’offrir des
+                ressources pratiques et accessibles pour aider chacun à se perfectionner dans le domaine de la tech,
+                tout en comblant le fossé entre l’éducation et le marché de l’emploi dans la région MENA et au-delà.</p>
+            <abbr title="Empowering the next generation of digital talent.">
+                Nous croyons en une approche pédagogique pratique et concrète, en fournissant des livres détaillés pour
+                vous guider à travers les défis du monde numérique.
+            </abbr>
+            <br><br>
+            <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">
+                Apprenez. Créez. Innovez. Rejoignez GOMYCODE et maîtrisez les compétences numériques grâce à nos livres
+                !
+            </marquee>
+        </div>
+    </section>
+
+    <section class="why-gomycode-carousel">
+        <h2>Pourquoi choisir <span>GOMYCODE</span> ?</h2>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#10094;</button>
+            <div class="carousel-track">
+                <div class="carousel-card">
+                    <img src="https://school.gomycode.com/wp-content/uploads/2024/10/Copy-of-392749528_732687895568921_2700632896557796424_n.jpg"
+                        alt="Méthode GOMYCODE">
+                    <h3>Une méthode pratique</h3>
+                    <p>Apprenez en réalisant de vrais projets encadrés par des experts.</p>
+                </div>
+                <div class="carousel-card">
+                    <img src="https://gomycode.com/ma/wp-content/uploads/sites/27/2023/12/Photos-Summer-Academy-01.08.2022@GoMyCode-Lac-Tunis-105-2-1-optimized.jpg"
+                        alt="Communauté GOMYCODE">
+                    <h3>Une grande communauté</h3>
+                    <p>Rejoignez des milliers d’apprenants et partagez votre passion.</p>
+                </div>
+                <div class="carousel-card">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D22AQFv448LxRJzfQ/feedshare-shrink_800/feedshare-shrink_800/0/1697100355560?e=2147483647&v=beta&t=1ig2g02zxqEladZ8D1ymeyVpwvIkEzVsLtgTEXjVbzQ"
+                        alt="Ambiance GOMYCODE">
+                    <h3>Une ambiance motivante</h3>
+                    <p>Un environnement qui booste votre énergie et votre créativité.</p>
+                </div>
+            </div>
+            <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
+        </div>
+    </section>
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Inscris-toi à notre newsletter</h4>
+            <p>Reçois les dernières <span>formations, événements et opportunités</span> GOMYCODE directement par mail.
+            </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Ton adresse e-mail">
+            <button class="normal">S'inscrire</button>
+        </div>
+    </section>
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="images/about/logo-gomycode-550x550-removebg-preview.png" alt="GOMYCODE Logo"
+                style="width: 100px;">
+            <h4>Contact</h4>
+            <p><strong>Adresse :</strong> 2 Rue de Syrie, Lafayette, Tunis, Tunisie</p>
+            <p><strong>Téléphone :</strong> +216 71 902 101</p>
+            <p><strong>Heures :</strong> 09:00 - 18:00, Lundi à Samedi</p>
+            <div class="follow">
+                <h4>Suivez-nous</h4>
+                <div class="icon">
+                    <a href="https://www.facebook.com/gomycode" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/gomycode/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/gomycode/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/c/GOMYCODE" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>À propos</h4>
+            <a href="#">Notre mission</a>
+            <a href="#">Nos campus</a>
+            <a href="#">Rejoindre GOMYCODE</a>
+            <a href="#">Conditions générales</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="col">
+            <h4>Liens utiles</h4>
+            <a href="#">S'inscrire</a>
+            <a href="#">Nos formations</a>
+            <a href="#">Événements</a>
+            <a href="#">FAQ</a>
+            <a href="#">Support</a>
+        </div>
+        <div class="col install">
+            <h4>Apprends partout</h4>
+            <p>Disponible sur mobile bientôt</p>
+            <div class="row">
+                <img src="images/pay/app.jpg" alt="">
+                <img src="images/pay/play.jpg" alt="">
+            </div>
+            <p>Plateforme sécurisée</p>
+            <img src="images/pay/pay.png" alt="">
+        </div>
+        <div class="copyright">
+            <p>© 2025 GOMYCODE. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        let currentIndex = 0;
+        const track = document.querySelector('.carousel-track');
+        const cards = document.querySelectorAll('.carousel-card');
+        function moveCarousel(direction) {
+            currentIndex = (currentIndex + direction + cards.length) % cards.length;
+            updateCarousel();
+        }
+        function updateCarousel() {
+            const width = cards[0].offsetWidth;
+            track.style.transform = `translateX(-${currentIndex * width}px)`;
+        }
+        window.addEventListener('resize', updateCarousel);
+        updateCarousel();
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000);
+    </script>
+</body>
+
+</html>

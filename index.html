@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final-Project-Walid-Chahmi</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<div id="toast" class="toast">Produit ajouté au panier !</div>
+
+<body>
+    <section id="header">
+        <a href="javascript:void(0);" onclick="scrollToTop()">
+            <img src="images/about/logo-gomycode-550x550-removebg-preview.png" class="logo" alt="Logo"
+                style="width: 200px;">
+        </a>
+        <script>
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+        </script>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Accueil</a></li>
+                <li><a href="shop.html">Boutique</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html"> À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag">
+                    <a href="cart.html">
+                        <i class="far fa-shopping-bag"></i>
+                        <span id="cart-count"
+                            style="background:red;color:white;padding:2px 6px;border-radius:50%;font-size:12px;position:absolute;top:0;right:-10px;">0</span>
+                    </a>
+                </li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html" style="position: relative;">
+                <i class="far fa-shopping-bag"></i>
+                <span id="cart-count-mobile"
+                    style="background:red;color:white;padding:2px 6px;border-radius:50%;font-size:12px;position:absolute;top:-8px;right:-10px;">0</span>
+            </a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="hero">
+        <h2>Promotion exceptionnelle</h2>
+        <h2>Livres techniques et guides pratiques</h2>
+        <h1>Pour développer vos compétences</h1>
+        <p>Profitez de remises allant jusqu'à 15% sur notre sélection d'ouvrages !</p>
+        <button class="normal" onclick="scrollToSection()">Découvrir les livres</button>
+    </section>
+
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="https://gomycode.com/tn/wp-content/uploads/sites/26/2024/09/Untitled-design-4-optimized.png"
+                alt="">
+            <h6>Points de retrait disponibles</h6>
+        </div>
+        <div class="fe-box">
+            <img src="https://gomycode.com/ic/wp-content/uploads/sites/25/2022/11/IMG_2248-1--optimized.jpg" alt="">
+            <h6>Éditions originales garanties</h6>
+        </div>
+        <div class="fe-box">
+            <img src="https://cdn1.webmanagercenter.com/tekiano/wp-content/uploads/2023/08/gomycode-320x188.jpg" alt="">
+            <h6>Sélection d'experts</h6>
+        </div>
+        <div class="fe-box">
+            <img src="https://gomycode.com/tn/wp-content/uploads/sites/26/2023/05/Rectangle-2173-1-optimized.png"
+                alt="">
+            <h6>Club de lecture</h6>
+        </div>
+        <div class="fe-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSURjHFjSX6fuBVmkXhn8f9sTGwACRS05kANQ&s"
+                alt="">
+            <h6>Service client dédié</h6>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Notre Sélection de Livres Techniques</h2>
+        <p>Découvrez les meilleurs ouvrages pour maîtriser les technologies du numérique</p>
+        <div class="pro-container">
+            <div class="pro page-1" id="product-1">
+                <a href="single-product.html?id=1" style="text-decoration: none; color: inherit;">
+                    <img
+                        src="https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/35328315_1699336896824142_2780454908514533376_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=OYiOGLfdPtUQ7kNvwEx-xjT&_nc_oc=AdkwQs74XlENbYdjdWdGGUykU2FF3oMuTAOISOeQdhv3TFk2NgrIiwRrINye5xLoN3U&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=Gf7kHjVhQjQFANu8YBJ8tA&oh=00_AfL64mJolVzCkCg1Aj3MJmdfaZZFTsHzn5nD5VAl8dF_7Q&oe=6841CE6C">
+                    <div class="des">
+                        <span>Éditions Numériques</span>
+                        <h5>Le Guide Complet du Développement Web</h5>
+                        <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h4>250 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Le Guide Complet du Développement Web', 250, 'https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/35328315_1699336896824142_2780454908514533376_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=OYiOGLfdPtUQ7kNvwEx-xjT&_nc_oc=AdkwQs74XlENbYdjdWdGGUykU2FF3oMuTAOISOeQdhv3TFk2NgrIiwRrINye5xLoN3U&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=Gf7kHjVhQjQFANu8YBJ8tA&oh=00_AfL64mJolVzCkCg1Aj3MJmdfaZZFTsHzn5nD5VAl8dF_7Q&oe=6841CE6C', event)"></i>
+            </div>
+
+            <div class="pro page-1" id="product-2">
+                <a href="single-product.html?id=2" style="text-decoration: none; color: inherit;">
+                    <img
+                        src="https://gomycode.com/tn/wp-content/uploads/sites/26/2023/11/gomytech-Aout-24-scaled-optimized.jpg">
+                    <div class="des">
+                        <span>Éditions DataPro</span>
+                        <h5>Data Science - Les Fondamentaux</h5>
+                        <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                        <h4>280 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Data Science - Les Fondamentaux', 280, 'https://gomycode.com/tn/wp-content/uploads/sites/26/2023/11/gomytech-Aout-24-scaled-optimized.jpg', event)"></i>
+            </div>
+
+            <div class="pro page-1" id="product-3">
+                <a href="single-product.html?id=3" style="text-decoration: none; color: inherit;">
+                    <img
+                        src="https://gomycode.com/tn/wp-content/uploads/sites/26/2023/02/intro-to-ux-design-1-1-scaled-optimized.jpg">
+                    <div class="des">
+                        <span>Design Éditions</span>
+                        <h5>UX/UI Design Moderne</h5>
+                        <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h4>220 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('UX/UI Design Moderne', 220, 'https://gomycode.com/tn/wp-content/uploads/sites/26/2023/02/intro-to-ux-design-1-1-scaled-optimized.jpg', event)"></i>
+            </div>
+
+            <div class="pro page-1" id="product-4">
+                <a href="single-product.html?id=4" style="text-decoration: none; color: inherit;">
+                    <img
+                        src="https://gomycode.com/tn/wp-content/uploads/sites/26/2024/04/How-to-Optimize-Your-LinkedIn-1-min-optimized.png">
+                    <div class="des">
+                        <span>Business Press</span>
+                        <h5>Stratégies de Marketing Digital</h5>
+                        <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <h4>190 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Stratégies de Marketing Digital', 190, 'https://gomycode.com/tn/wp-content/uploads/sites/26/2024/04/How-to-Optimize-Your-LinkedIn-1-min-optimized.png', event)"></i>
+            </div>
+
+            <div class="pro page-1" id="product-5">
+                <a href="single-product.html?id=5" style="text-decoration: none; color: inherit;">
+                    <img
+                        src="https://gomycode.com/tn/wp-content/uploads/sites/26/2023/08/mobile-experience-optimization-scaled-optimized.jpg">
+                    <div class="des">
+                        <span>Éditions Mobiles</span>
+                        <h5>Développement Mobile Complet</h5>
+                        <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                        <h4>260 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Développement Mobile Complet', 260, 'https://gomycode.com/tn/wp-content/uploads/sites/26/2023/08/mobile-experience-optimization-scaled-optimized.jpg', event)"></i>
+            </div>
+
+            <div class="pro page-1" id="product-6">
+                <a href="single-product.html?id=6" style="text-decoration: none; color: inherit;">
+                    <img
+                        src="https://gomycode.com/tn/wp-content/uploads/sites/26/2023/09/Plan-de-travail-1-optimized.png">
+                    <div class="des">
+                        <span>Sécurité Éditions</span>
+                        <h5>Cybersécurité Essentielle</h5>
+                        <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <h4>300 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Cybersécurité Essentielle', 300, 'https://gomycode.com/tn/wp-content/uploads/sites/26/2023/09/Plan-de-travail-1-optimized.png', event)"></i>
+            </div>
+
+            <div class="pro page-1" id="product-7">
+                <a href="single-product.html?id=7" style="text-decoration: none; color: inherit;">
+                    <img src="https://gomycode.com/tn/wp-content/uploads/sites/26/2023/04/ModelOps-Web-optimized.png">
+                    <div class="des">
+                        <span>Cloud Éditions</span>
+                        <h5>Cloud Computing & DevOps</h5>
+                        <div class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h4>270 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Cloud Computing & DevOps', 270, 'https://gomycode.com/tn/wp-content/uploads/sites/26/2023/04/ModelOps-Web-optimized.png', event)"></i>
+            </div>
+
+            <div class="pro page-1" id="product-8">
+                <a href="single-product.html?id=8" style="text-decoration: none; color: inherit;">
+                    <img src="https://gomycode.com/tn/wp-content/uploads/sites/26/2023/04/gomytech_AI-1--1536x864-optimized.jpg"
+                        alt="">
+                    <div class="des">
+                        <span>IA Press</span>
+                        <h5>L'Essentiel de l'IA</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <h4>290 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('L Essentiel de l IA', 290, 'https://gomycode.com/tn/wp-content/uploads/sites/26/2023/04/gomytech_AI-1--1536x864-optimized.jpg', event)"></i>
+            </div>
+
+            <div class="pro page-1" id="product-9">
+                <a href="single-product.html?id=9" style="text-decoration: none; color: inherit;">
+                    <img src="https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/97110319_2924230507668102_3809449594266320896_n.png?stp=dst-png_s960x960&_nc_cat=105&ccb=1-7&_nc_sid=0b6b33&_nc_ohc=_Q4DsyUSX5IQ7kNvwE7Lgf_&_nc_oc=AdkhC95W-lh2B8y1tAK-510ImhAp3cbOS9y0AZoF1ljW-hiYajRY_ZoQxA7JyvKj1Qg&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=prtTDklre9LXHszUhxbxtw&oh=00_AfItTupaHXMkA-2BSgRQW49UXS1FtNgftYkYzsZWMoOzlg&oe=6841E936"
+                        alt="JavaScript Avancé">
+                    <div class="des">
+                        <span>Éditions CodePro</span>
+                        <h5>JavaScript - Niveau Expert</h5>
+                        <p>Maîtrisez les concepts avancés de JavaScript et les dernières fonctionnalités ES6+.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h4>230 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('JavaScript - Niveau Expert', 230, 'https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/97110319_2924230507668102_3809449594266320896_n.png?stp=dst-png_s960x960&_nc_cat=105&ccb=1-7&_nc_sid=0b6b33&_nc_ohc=_Q4DsyUSX5IQ7kNvwE7Lgf_&_nc_oc=AdkhC95W-lh2B8y1tAK-510ImhAp3cbOS9y0AZoF1ljW-hiYajRY_ZoQxA7JyvKj1Qg&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=prtTDklre9LXHszUhxbxtw&oh=00_AfItTupaHXMkA-2BSgRQW49UXS1FtNgftYkYzsZWMoOzlg&oe=6841E936', event)"></i>
+            </div>
+
+            <div class="pro page-1" id="product-10">
+                <a href="single-product.html?id=10" style="text-decoration: none; color: inherit;">
+                    <img src="https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/69752316_2398333850257773_1814528974236155904_n.png?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=0VabiT7YWNkQ7kNvwEbYBB4&_nc_oc=AdnZsesOI7wzgvhU1u-HcPszEnDqTRdGUWuaRp2Hbtx89pQ19YSKA5tnbcbKwBeXuqQ&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=BzBHPOD8HWQVrFkbxoms6g&oh=00_AfIWpAvDOCjdhN7UFH108ZOdlNoa3zRYj0PpbcM2c3U1ag&oe=6841E2DF"
+                        alt="Python pour Débutants">
+                    <div class="des">
+                        <span>Éditions Python</span>
+                        <h5>Python - Les Fondamentaux</h5>
+                        <p>Apprenez Python à travers des exemples pratiques et des exercices progressifs.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <h4>180 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Python - Les Fondamentaux', 180, 'https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/69752316_2398333850257773_1814528974236155904_n.png?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=0VabiT7YWNkQ7kNvwEbYBB4&_nc_oc=AdnZsesOI7wzgvhU1u-HcPszEnDqTRdGUWuaRp2Hbtx89pQ19YSKA5tnbcbKwBeXuqQ&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=BzBHPOD8HWQVrFkbxoms6g&oh=00_AfIWpAvDOCjdhN7UFH108ZOdlNoa3zRYj0PpbcM2c3U1ag&oe=6841E2DF', event)"></i>
+            </div>
+
+            <div class="pro page-1" id="product-11">
+                <a href="single-product.html?id=11" style="text-decoration: none; color: inherit;">
+                    <img src="https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/41020257_1832982850126212_9218854963914997760_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=gDszyNSswl0Q7kNvwExjoDw&_nc_oc=AdnrBRtViEcZhcjdu8QHL4vUXc8kAe0kDv6NtwbW8bGO0r7CwGA6Og9FISJrc2YlGh0&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=JRjXwornQzT7Zo2cT3fxEA&oh=00_AfKjulgvgNZgIqmDObHB716m65-XPGxDwP30gh_w-mAr5g&oe=6841EAF3"
+                        alt="React.js">
+                    <div class="des">
+                        <span>Éditions FrontEnd</span>
+                        <h5>React.js - Le Guide Complet</h5>
+                        <p>Tout ce que vous devez savoir pour maîtriser React.js et son écosystème.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>250 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('React.js - Le Guide Complet', 250, 'https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/41020257_1832982850126212_9218854963914997760_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=gDszyNSswl0Q7kNvwExjoDw&_nc_oc=AdnrBRtViEcZhcjdu8QHL4vUXc8kAe0kDv6NtwbW8bGO0r7CwGA6Og9FISJrc2YlGh0&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=JRjXwornQzT7Zo2cT3fxEA&oh=00_AfKjulgvgNZgIqmDObHB716m65-XPGxDwP30gh_w-mAr5g&oe=6841EAF3', event)"></i>
+            </div>
+
+            <div class="pro page-1" id="product-12">
+                <a href="single-product.html?id=12" style="text-decoration: none; color: inherit;">
+                    <img src="https://user-images.githubusercontent.com/97989643/224550089-f2541ade-c5c6-4afa-8538-51a8dda4e23b.gif"
+                        alt="Node.js & Express">
+                    <div class="des">
+                        <span>Éditions BackEnd</span>
+                        <h5>Node.js & Express - Développement BackEnd</h5>
+                        <p>Créez des applications serveur performantes avec Node.js et Express.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h4>240 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Node.js & Express - Développement BackEnd', 240, 'https://user-images.githubusercontent.com/97989643/224550089-f2541ade-c5c6-4afa-8538-51a8dda4e23b.gif', event)"></i>
+            </div>
+
+            <div class="pro page-2" id="product-13">
+                <a href="single-product.html?id=13" style="text-decoration: none; color: inherit;">
+                    <img src="https://miro.medium.com/v2/resize:fit:1400/1*qwFrTMnFkcd3U9rFKwwacw.png"
+                        alt="Git & GitHub">
+                    <div class="des">
+                        <span>Éditions DevTools</span>
+                        <h5>Git & GitHub - Gestion de Version</h5>
+                        <p>Maîtrisez le contrôle de version et la collaboration sur vos projets.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <h4>160 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Git & GitHub - Gestion de Version', 160, 'https://miro.medium.com/v2/resize:fit:1400/1*qwFrTMnFkcd3U9rFKwwacw.png', event)"></i>
+            </div>
+
+            <div class="pro page-2" id="product-14">
+                <a href="single-product.html?id=14" style="text-decoration: none; color: inherit;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPi8awD7KVVcu9VzDxXJCNtcOG9HhpHNbaIQ&s"
+                        alt="SQL & Bases de Données">
+                    <div class="des">
+                        <span>Éditions Data</span>
+                        <h5>SQL - Maîtrise des Bases de Données</h5>
+                        <p>Apprenez à concevoir et interroger des bases de données relationnelles.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>200 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('SQL - Maîtrise des Bases de Données', 200, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPi8awD7KVVcu9VzDxXJCNtcOG9HhpHNbaIQ&s', event)"></i>
+            </div>
+
+            <div class="pro page-2" id="product-15">
+                <a href="single-product.html?id=15" style="text-decoration: none; color: inherit;">
+                    <img src="https://gomycode.com/dz/wp-content/uploads/sites/34/2023/04/cover-19-1-1-optimized.jpg"
+                        alt="Arduino et Electronique">
+                    <div class="des">
+                        <span>Éditions Maker</span>
+                        <h5>Arduino - Projets Créatifs</h5>
+                        <p>Initiation à l'électronique et à la programmation avec Arduino.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h4>220 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Arduino - Projets Créatifs', 220, 'https://gomycode.com/dz/wp-content/uploads/sites/34/2023/04/cover-19-1-1-optimized.jpg', event)"></i>
+            </div>
+
+            <div class="pro page-2" id="product-16">
+                <a href="single-product.html?id=16" style="text-decoration: none; color: inherit;">
+                    <img src="https://scontent.ftun9-1.fna.fbcdn.net/v/t39.30808-6/465151636_8591128557644907_1215333687814538651_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7lD_A-yBC04Q7kNvwFxXXf4&_nc_oc=AdlalINRBVlXKKO6hANUKxxIue9cJ2_ePIt1z1C74kd6LfATtUPOn5PeW9gS4a03Frk&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=DhAd-pDNmh0KG_gJ8yfh2w&oh=00_AfJPQnY1vlF5gA-ubpt15JzrKj2WK7326If57OJyqx3weA&oe=68204038"
+                        alt="Robotique">
+                    <div class="des">
+                        <span>Éditions Tech</span>
+                        <h5>Robotique - Principes et Applications</h5>
+                        <p>Découvrez les concepts fondamentaux de la robotique moderne.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <h4>270 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Robotique - Principes et Applications', 270, 'https://scontent.ftun9-1.fna.fbcdn.net/v/t39.30808-6/465151636_8591128557644907_1215333687814538651_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7lD_A-yBC04Q7kNvwFxXXf4&_nc_oc=AdlalINRBVlXKKO6hANUKxxIue9cJ2_ePIt1z1C74kd6LfATtUPOn5PeW9gS4a03Frk&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=DhAd-pDNmh0KG_gJ8yfh2w&oh=00_AfJPQnY1vlF5gA-ubpt15JzrKj2WK7326If57OJyqx3weA&oe=68204038', event)"></i>
+            </div>
+
+            <div class="pro page-2" id="product-17">
+                <a href="single-product.html?id=17" style="text-decoration: none; color: inherit;">
+                    <img src="https://www.wppourlesnuls.com/wp-content/uploads/2019/05/wordpress.gif"
+                        alt="Développement WordPress">
+                    <div class="des">
+                        <span>Éditions Web</span>
+                        <h5>WordPress - Création de Sites Professionnels</h5>
+                        <p>Guide complet pour créer et gérer des sites WordPress.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>210 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('WordPress - Création de Sites Professionnels', 210, 'https://www.wppourlesnuls.com/wp-content/uploads/2019/05/wordpress.gif', event)"></i>
+            </div>
+
+            <div class="pro page-2" id="product-18">
+                <a href="single-product.html?id=18" style="text-decoration: none; color: inherit;">
+                    <img src="https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/70668582_2412939125463912_5297973972162314240_n.png?stp=dst-png_s960x960&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=aVB6kJhi2MkQ7kNvwFl8lKX&_nc_oc=AdlGS1XUAKp9fNC-1KVG3-YG0BFh4p6tDrmEUv3wT9TCivlDTrtpBT2px2UH-OQC-mQ&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=HEPycGJASOhQzeQdNkFF-g&oh=00_AfIq7bDuVLJEGmfEvnQMYywDvbFbMsdFbXHijF8Z31JjfA&oe=6841D373"
+                        alt="Blockchain & Web3">
+                    <div class="des">
+                        <span>Éditions Crypto</span>
+                        <h5>Blockchain - Technologies et Applications</h5>
+                        <p>Comprendre les concepts clés de la blockchain et du Web3.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h4>290 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Blockchain - Technologies et Applications', 290, 'https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/70668582_2412939125463912_5297973972162314240_n.png?stp=dst-png_s960x960&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=aVB6kJhi2MkQ7kNvwFl8lKX&_nc_oc=AdlGS1XUAKp9fNC-1KVG3-YG0BFh4p6tDrmEUv3wT9TCivlDTrtpBT2px2UH-OQC-mQ&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=HEPycGJASOhQzeQdNkFF-g&oh=00_AfIq7bDuVLJEGmfEvnQMYywDvbFbMsdFbXHijF8Z31JjfA&oe=6841D373', event)"></i>
+            </div>
+
+            <div class="pro page-2" id="product-19">
+                <a href="single-product.html?id=19" style="text-decoration: none; color: inherit;">
+                    <img src="https://gomycode.com/dz/wp-content/uploads/sites/34/2023/04/Linux-1--optimized.png"
+                        alt="Linux & Systèmes d'Exploitation">
+                    <div class="des">
+                        <span>Éditions Systèmes</span>
+                        <h5>Linux - Administration Système</h5>
+                        <p>Guide pratique pour administrer des systèmes Linux.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>240 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Linux - Administration Système', 240, 'https://gomycode.com/dz/wp-content/uploads/sites/34/2023/04/Linux-1--optimized.png', event)"></i>
+            </div>
+
+            <div class="pro page-2" id="product-20">
+                <a href="single-product.html?id=20" style="text-decoration: none; color: inherit;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU4q8BRThdS68BVcNlbacwORu6ovNeqGfyIhXC8594OWHz64kFaIB8ZTy3Y0ogv7zPNOc&usqp=CAU"
+                        alt="Développement Front-End">
+                    <div class="des">
+                        <span>Éditions WebDesign</span>
+                        <h5>Front-End Moderne - Bonnes Pratiques</h5>
+                        <p>Les meilleures techniques pour développer des interfaces modernes.</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <h4>230 TND</h4>
+                    </div>
+                </a>
+                <i class="fas fa-shopping-cart cart"
+                    onclick="addToCart('Front-End Moderne - Bonnes Pratiques', 230, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU4q8BRThdS68BVcNlbacwORu6ovNeqGfyIhXC8594OWHz64kFaIB8ZTy3Y0ogv7zPNOc&usqp=CAU', event)"></i>
+            </div>
+        </div>
+    </section>
+    <section id="pagination" class="section-p1">
+        <a href="#" onclick="showPage(1, event)">1</a>
+        <a href="#" onclick="showPage(2, event)">2</a>
+    </section>
+    <section id="banner" class="section-m1">
+        <h4>Livres de Formation</h4>
+        <h2>Rejoignez des milliers de lecteurs passionnés par les livres GOMYCODE</h2>
+        <button class="normal" onclick="scrollToSection()">Découvrir Nos Livres</button>
+    </section>
+    <section id="product1" class="section-p1">
+        <h2>Supportez GOMYCODE</h2>
+        <p>Achetez nos t-shirts et casquettes exclusives pour soutenir GOMYCODE et garder un souvenir inoubliable de
+            votre parcours.</p>
+        <div class="pro-container">
+            <div class="pro page-2 page-1" id="product-21">
+                <a href="single-product.html?id=21" style="text-decoration: none; color: inherit;">
+                    <img src="images/products/tshirt1.png" alt="T-shirt GOMYCODE">
+                    <div class="des">
+                        <span>GOMYCODE</span>
+                        <h5>T-shirt GOMYCODE - Edition Limitée</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>55 TND</h4>
+                    </div>
+                </a>
+                <a href="#"
+                    onclick="addToCart('T-shirt GOMYCODE - Edition Limitée', 55, 'images/products/tshirt1.png',event)">
+                    <i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro page-2 page-1" id="product-22">
+                <a href="single-product.html?id=22" style="text-decoration: none; color: inherit;">
+                    <img src="images/products/tshirt2.png" alt="T-shirt GOMYCODE">
+                    <div class="des">
+                        <span>GOMYCODE</span>
+                        <h5>T-shirt GOMYCODE - Edition Étudiant</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>55 TND</h4>
+                    </div>
+                </a>
+                <a href="#"
+                    onclick="addToCart('T-shirt GOMYCODE - Edition Étudiant', 55, 'images/products/tshirt2.png',event)">
+                    <i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro page-2 page-1" id="product-23">
+                <a href="single-product.html?id=23" style="text-decoration: none; color: inherit;">
+                    <img src="https://mir-s3-cdn-cf.behance.net/projects/404/949143155416401.Y3JvcCw4MTYsNjM5LDI5MSww.jpg"
+                        alt="Sticker GOMYCODE Fun">
+                    <div class="des">
+                        <span>GOMYCODE</span>
+                        <h5>Stickers GOMYCODE - Edition Fun</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>15 TND</h4>
+                    </div>
+                </a>
+                <a href="#"
+                    onclick="addToCart('Sticker GOMYCODE - Edition Fun', 15, 'https://mir-s3-cdn-cf.behance.net/projects/404/949143155416401.Y3JvcCw4MTYsNjM5LDI5MSww.jpg',event)">
+                    <i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro page-2 page-1" id="product-24">
+                <a href="single-product.html?id=24" style="text-decoration: none; color: inherit;">
+                    <img src="images/products/casquette.png" alt="Casquette GOMYCODE">
+                    <div class="des">
+                        <span>GOMYCODE</span>
+                        <h5>Casquette GOMYCODE - Edition Étudiant</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>40 TND</h4>
+                    </div>
+                </a>
+                <a href="#"
+                    onclick="addToCart('Casquette GOMYCODE - Edition Étudiant', 40, 'images/products/casquette.png',event)">
+                    <i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+        </div>
+    </section>
+    <section class="why-gomycode-carousel">
+        <h2>Pourquoi choisir <span>GOMYCODE</span> ?</h2>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#10094;</button>
+            <div class="carousel-track">
+                <div class="carousel-card">
+                    <img src="https://school.gomycode.com/wp-content/uploads/2024/10/Copy-of-392749528_732687895568921_2700632896557796424_n.jpg"
+                        alt="Méthode GOMYCODE">
+                    <h3>Une méthode pratique</h3>
+                    <p>Découvrez nos livres de formation pour apprendre à votre rythme, avec des explications claires et
+                        des exemples pratiques.</p>
+                </div>
+                <div class="carousel-card">
+                    <img src="https://gomycode.com/ma/wp-content/uploads/sites/27/2023/12/Photos-Summer-Academy-01.08.2022@GoMyCode-Lac-Tunis-105-2-1-optimized.jpg"
+                        alt="Communauté GOMYCODE">
+                    <h3>Une grande communauté</h3>
+                    <p>Rejoignez une communauté de lecteurs et d'apprenants passionnés, échangez et progressez ensemble.
+                    </p>
+                </div>
+                <div class="carousel-card">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D22AQFv448LxRJzfQ/feedshare-shrink_800/feedshare-shrink_800/0/1697100355560?e=2147483647&v=beta&t=1ig2g02zxqEladZ8D1ymeyVpwvIkEzVsLtgTEXjVbzQ"
+                        alt="Ambiance GOMYCODE">
+                    <h3>Une ambiance motivante</h3>
+                    <p>Les livres GOMYCODE sont conçus pour inspirer et stimuler votre créativité et votre motivation à
+                        apprendre.</p>
+                </div>
+            </div>
+            <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="banner3">
+        <div class="banner-box">
+            <h2>REJOINS GOMYCODE</h2>
+            <h3>Une communauté passionnée par la tech</h3>
+        </div>
+        <div class="banner-box">
+            <h2>APPRENDS AUTREMENT</h2>
+            <h3>Des livres pratiques et inspirants</h3>
+        </div>
+        <div class="banner-box">
+            <h2>BOOSTE TA CARRIÈRE</h2>
+            <h3>Prépare-toi aux métiers du futur grâce à nos livres de formation</h3>
+        </div>
+    </section>
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Inscris-toi à notre newsletter</h4>
+            <p>Reçois les dernières <span>formations, événements et opportunités</span> GOMYCODE directement par mail.
+            </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Ton adresse e-mail">
+            <button class="normal">S'inscrire</button>
+        </div>
+    </section>
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="images/about/logo-gomycode-550x550-removebg-preview.png" alt="GOMYCODE Logo"
+                style="width: 100px;">
+            <h4>Contact</h4>
+            <p><strong>Adresse :</strong> 2 Rue de Syrie, Lafayette, Tunis, Tunisie</p>
+            <p><strong>Téléphone :</strong> +216 71 902 101</p>
+            <p><strong>Heures :</strong> 09:00 - 18:00, Lundi à Samedi</p>
+            <div class="follow">
+                <h4>Suivez-nous</h4>
+                <div class="icon">
+                    <a href="https://www.facebook.com/gomycode" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/gomycode/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/gomycode/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/c/GOMYCODE" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>À propos</h4>
+            <a href="#">Notre mission</a>
+            <a href="#">Nos campus</a>
+            <a href="#">Rejoindre GOMYCODE</a>
+            <a href="#">Conditions générales</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="col">
+            <h4>Liens utiles</h4>
+            <a href="#">S'inscrire</a>
+            <a href="#">Nos formations</a>
+            <a href="#">Événements</a>
+            <a href="#">FAQ</a>
+            <a href="#">Support</a>
+        </div>
+        <div class="col install">
+            <h4>Apprends partout</h4>
+            <p>Disponible sur mobile bientôt</p>
+            <div class="row">
+                <img src="images/pay/app.jpg" alt="">
+                <img src="images/pay/play.jpg" alt="">
+            </div>
+            <p>Plateforme sécurisée</p>
+            <img src="images/pay/pay.png" alt="">
+        </div>
+        <div class="copyright">
+            <p>© 2025 GOMYCODE. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        function scrollToSection() {
+            document.querySelector("#product1").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    </script>
+    <script>
+        let currentIndex = 0;
+        const track = document.querySelector('.carousel-track');
+        const cards = document.querySelectorAll('.carousel-card');
+
+        function moveCarousel(direction) {
+            currentIndex = (currentIndex + direction + cards.length) % cards.length;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const width = cards[0].offsetWidth;
+            track.style.transform = `translateX(-${currentIndex * width}px)`;
+        }
+
+        window.addEventListener('resize', updateCarousel);
+        updateCarousel();
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000);
+    </script>
+    <script>
+        function viewProduct(productId) {
+            localStorage.setItem('selectedProductId', productId);
+            window.location.href = 'single-product.html';
+        }
+    </script>
+
+</body>
+
+</html>

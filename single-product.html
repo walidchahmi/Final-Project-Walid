@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final-Project-Walid-Chahmi</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+    <div id="toast" class="toast">Produit ajouté au panier !</div>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <style>
+        #reviews-section {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .autoplay {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .review-item {
+            background: #f1f1f1;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .review-author h4 {
+            font-size: 18px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .review-author p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .review-item p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .slick-prev,
+        .slick-next {
+            background-color: transparent;
+            border: none;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .slick-prev:hover,
+        .slick-next:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="header">
+        <a href="javascript:void(0);" onclick="scrollToTop()">
+            <img src="images/about/logo-gomycode-550x550-removebg-preview.png" class="logo" alt="Logo"
+                style="width: 200px;">
+        </a>
+        <script>
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+        </script>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Accueil</a></li>
+                <li><a href="shop.html">Boutique</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html"> À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag">
+                    <a href="cart.html">
+                        <i class="far fa-shopping-bag"></i>
+                        <span id="cart-count"
+                            style="background:red;color:white;padding:2px 6px;border-radius:50%;font-size:12px;position:absolute;top:0;right:-10px;">0</span>
+                    </a>
+                </li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html" style="position: relative;">
+                <i class="far fa-shopping-bag"></i>
+                <span id="cart-count-mobile"
+                    style="background:red;color:white;padding:2px 6px;border-radius:50%;font-size:12px;position:absolute;top:-8px;right:-10px;">0</span>
+            </a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <a id="back-link" href="index.html" style="
+  display: inline-block;
+  margin: 30px;
+  padding: 12px 20px;
+  background-color: #f3f3f3;
+  color: #088178;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid #088178;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;">
+        ← Retour à la boutique
+    </a>
+    <script>
+        const urlParamsBack = new URLSearchParams(window.location.search);
+        const backProductId = parseInt(urlParamsBack.get("id"));
+
+        const backLink = document.getElementById("back-link");
+
+        if (backLink && !isNaN(backProductId)) {
+            backLink.setAttribute("href", `index.html#product-${backProductId}`);
+        } else {
+            backLink.setAttribute("href", "index.html");
+        }
+    </script>
+
+    <div class="product-container" id="product-detail">
+    </div>
+    <hr>
+    <section id="reviews-section">
+        <div class="autoplay">
+            <div class="review-item">
+                <div class="review-header">
+                    <img src="https://school.gomycode.com/wp-content/uploads/2025/01/Rectangle-118.png" alt="Ahmed"
+                        class="review-avatar">
+                    <div class="review-author">
+                        <h4>Ahmed</h4>
+                        <p>Utilisateur</p>
+                    </div>
+                </div>
+                <p>"Les formations GOMYCODE sont incroyables. J'ai appris à coder en un rien de temps." - Ahmed</p>
+            </div>
+            <div class="review-item">
+                <div class="review-header">
+                    <img src="https://scontent.ftun10-2.fna.fbcdn.net/v/t39.30808-6/490103739_9510981958992891_4179462869550876399_n.jpg?stp=dst-jpg_p526x395_tt6&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Qut93fVuB9kQ7kNvwHXqVtu&_nc_oc=Adm9i-0ILw8EWLkv8A_c9U5UKJugC_1BMKL0PfH7edQLumi01H6oCbjGvCOV9zHMH4Y&_nc_zt=23&_nc_ht=scontent.ftun10-2.fna&_nc_gid=VvjJWRmtwvK4Zxim2-0uMw&oh=00_AfJIuPLzB-mPxF89eHJqip28puUN6tSx0Y_W7SQr6KuizA&oe=68240711"
+                        alt="Sarah" class="review-avatar">
+                    <div class="review-author">
+                        <h4>Sarah</h4>
+                        <p>Utilisateur</p>
+                    </div>
+                </div>
+                <p>"Je recommande vivement GOMYCODE. Une expérience d'apprentissage enrichissante et pratique!" - Sarah
+                </p>
+            </div>
+            <div class="review-item">
+                <div class="review-header">
+                    <img src="https://orientxxi.info/IMG/logo/dr_ahmed_manai_copy_2.jpg?1706616941" alt="Samir"
+                        class="review-avatar">
+                    <div class="review-author">
+                        <h4>Samir</h4>
+                        <p>Utilisateur</p>
+                    </div>
+                </div>
+                <p>"Le suivi et la qualité des cours sont au top. Grâce à GOMYCODE, j'ai trouvé un super job!" - Samir
+                </p>
+            </div>
+            <div class="review-item">
+                <div class="review-header">
+                    <img src="https://www.espacemanager.com/sites/default/files/field/image/mouna_mtibaa.jpg"
+                        alt="Mouna" class="review-avatar">
+                    <div class="review-author">
+                        <h4>Mouna</h4>
+                        <p>Utilisateur</p>
+                    </div>
+                </div>
+                <p>"Les t-shirts GOMYCODE sont stylés et de super qualité. Un excellent souvenir de l'école!" - Mouna
+                </p>
+            </div>
+            <div class="review-item">
+                <div class="review-header">
+                    <img src="https://www.para-doctor.tn/wp-content/uploads/2024/11/cardiologue-rades-dr-mouna-mensi-chaabouni.jpg"
+                        alt="Rania" class="review-avatar">
+                    <div class="review-author">
+                        <h4>Rania</h4>
+                        <p>Utilisateur</p>
+                    </div>
+                </div>
+                <p>"J'ai acheté un t-shirt GOMYCODE comme souvenir, et j'adore. Très confortable!" - Rania</p>
+            </div>
+            <div class="review-item">
+                <div class="review-header">
+                    <img src="https://img.lemde.fr/2011/02/01/78/0/1800/900/664/0/75/0/ill_1473377_b8d5_000_sapa990628691000.jpg"
+                        alt="Ali" class="review-avatar">
+                    <div class="review-author">
+                        <h4>Ali</h4>
+                        <p>Utilisateur</p>
+                    </div>
+                </div>
+                <p>"Le service client est rapide et efficace. Très satisfait de mon achat!" - Ali</p>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="images/about/logo-gomycode-550x550-removebg-preview.png" alt="GOMYCODE Logo"
+                style="width: 100px;">
+            <h4>Contact</h4>
+            <p><strong>Adresse :</strong> 2 Rue de Syrie, Lafayette, Tunis, Tunisie</p>
+            <p><strong>Téléphone :</strong> +216 71 902 101</p>
+            <p><strong>Heures :</strong> 09:00 - 18:00, Lundi à Samedi</p>
+            <div class="follow">
+                <h4>Suivez-nous</h4>
+                <div class="icon">
+                    <a href="https://www.facebook.com/gomycode" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/gomycode/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/gomycode/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/c/GOMYCODE" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>À propos</h4>
+            <a href="#">Notre mission</a>
+            <a href="#">Nos campus</a>
+            <a href="#">Rejoindre GOMYCODE</a>
+            <a href="#">Conditions générales</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="col">
+            <h4>Liens utiles</h4>
+            <a href="#">S'inscrire</a>
+            <a href="#">Nos formations</a>
+            <a href="#">Événements</a>
+            <a href="#">FAQ</a>
+            <a href="#">Support</a>
+        </div>
+        <div class="col install">
+            <h4>Apprends partout</h4>
+            <p>Disponible sur mobile bientôt</p>
+            <div class="row">
+                <img src="images/pay/app.jpg" alt="">
+                <img src="images/pay/play.jpg" alt="">
+            </div>
+            <p>Plateforme sécurisée</p>
+            <img src="images/pay/pay.png" alt="">
+        </div>
+        <div class="copyright">
+            <p>© 2025 GOMYCODE. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "Développement Web FullStack",
+                price: "250 TND",
+                description: "Cette formation complète en développement web fullstack vous permettra de maîtriser toutes les étapes de la création d'applications web modernes. Vous apprendrez les fondamentaux du frontend avec HTML5, CSS3 et JavaScript ES6+, puis vous approfondirez React.js pour créer des interfaces dynamiques. Côté backend, vous découvrirez Node.js, Express et les bases de données SQL (PostgreSQL) et NoSQL (MongoDB). La formation inclut des modules avancés sur l'authentification JWT, les WebSockets et le déploiement continu. Vous réaliserez plusieurs projets concrets dont un clone de réseau social et une plateforme e-commerce complète avec paiement en ligne. Des bonnes pratiques de code propre, de tests unitaires et de travail collaboratif avec Git/GitHub sont intégrées tout au long du parcours.",
+                image: "https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/35328315_1699336896824142_2780454908514533376_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=OYiOGLfdPtUQ7kNvwEx-xjT&_nc_oc=AdkwQs74XlENbYdjdWdGGUykU2FF3oMuTAOISOeQdhv3TFk2NgrIiwRrINye5xLoN3U&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=Gf7kHjVhQjQFANu8YBJ8tA&oh=00_AfL64mJolVzCkCg1Aj3MJmdfaZZFTsHzn5nD5VAl8dF_7Q&oe=6841CE6C"
+            },
+            {
+                id: 2,
+                name: "Data Science & Machine Learning",
+                price: "280 TND",
+                description: "Plongez dans l'univers de la data science avec cette formation intensive qui couvre tout le pipeline de traitement des données. Vous commencerez par maîtriser Python pour l'analyse de données avec Pandas et NumPy, avant d'aborder la visualisation avec Matplotlib et Seaborn. Le cœur de la formation porte sur le machine learning : régression, classification, clustering et réseaux de neurones avec Scikit-learn et TensorFlow. Vous travaillerez sur des datasets réels (données médicales, financières, images) et apprendrez à évaluer et optimiser vos modèles. Des modules spécifiques sont dédiés au NLP (Natural Language Processing) et au déploiement de modèles avec Flask. La formation inclut également une introduction au Big Data avec PySpark et aux bonnes pratiques de gestion de projets data.",
+                image: "https://gomycode.com/tn/wp-content/uploads/sites/26/2023/11/gomytech-Aout-24-scaled-optimized.jpg"
+            },
+            {
+                id: 3,
+                name: "UX/UI Design",
+                price: "220 TND",
+                description: "Devenez un designer d'expérience utilisateur accompli avec cette formation complète en UX/UI Design. Vous apprendrez les principes fondamentaux de la psychologie cognitive appliquée aux interfaces, les méthodes de recherche utilisateur (interviews, personas, parcours utilisateur) et les techniques de prototypage rapide. La formation couvre en profondeur Figma et Adobe XD, des ateliers d'idéation, les tests d'utilisabilité et l'accessibilité numérique (WCAG). Vous créerez un portfolio professionnel incluant un projet complet d'application mobile (wireframes, maquettes haute-fidélité, prototype interactif) et un redesign de site web existant. Des modules avancés abordent les Design Systems, l'animation micro-interactions et la collaboration avec les développeurs via des outils comme Zeplin. Des experts du secteur partageront leur expérience sur des cas réels.",
+                image: "https://gomycode.com/tn/wp-content/uploads/sites/26/2023/02/intro-to-ux-design-1-1-scaled-optimized.jpg"
+            },
+            {
+                id: 4,
+                name: "Marketing Digital",
+                price: "190 TND",
+                description: "Cette formation complète en marketing digital vous transformera en stratège digital polyvalent. Le programme couvre tous les canaux : SEO (optimisation technique et contenu), publicité Facebook/Instagram Ads et Google Ads (Search, Display, YouTube), email marketing automatisé et growth hacking. Vous apprendrez à analyser les données avec Google Analytics 4, à créer des landing pages convertissantes et à manager les influenceurs. Un focus important est mis sur la stratégie de contenu (blog, vidéo, podcasts) et le community management sur les réseaux sociaux. Vous réaliserez une campagne complète pour une marque fictive, du brief créatif au rapport d'analyse, en passant par la création d'audiences personnalisées. La formation inclut également des modules sur le e-commerce (Shopify), l'automatisation (Zapier) et les tendances émergentes comme le Web3 marketing.",
+                image: "https://gomycode.com/tn/wp-content/uploads/sites/26/2024/04/How-to-Optimize-Your-LinkedIn-1-min-optimized.png"
+            },
+            {
+                id: 5,
+                name: "Développement Mobile",
+                price: "260 TND",
+                description: "Maîtrisez le développement d'applications mobiles cross-platform avec cette formation intensive sur React Native et Flutter. Vous apprendrez à créer des interfaces natives pour iOS et Android à partir d'un seul codebase, à gérer l'état de l'application et à intégrer des APIs REST. La formation couvre en profondeur les fonctionnalités mobiles (géolocalisation, notifications push, appareil photo) et les bonnes pratiques de performance. Vous découvrirez Firebase pour l'authentification, le stockage et les bases de données temps réel. Un module complet est dédié à la publication sur les stores (Apple App Store et Google Play) incluant les guidelines, les métadonnées et l'ASO. Vous réaliserez trois applications complètes dont un réseau social avec chat en temps réel et une application de e-commerce avec paiement in-app. Des techniques avancées comme l'optimisation pour tablette et l'offline-first sont également abordées.",
+                image: "https://gomycode.com/tn/wp-content/uploads/sites/26/2023/08/mobile-experience-optimization-scaled-optimized.jpg"
+            },
+            {
+                id: 6,
+                name: "Cybersécurité",
+                price: "300 TND",
+                description: "Devenez expert en sécurité informatique avec ce parcours complet en cybersécurité offensive et défensive. La formation commence par les fondamentaux des réseaux et systèmes avant de plonger dans les techniques de hacking éthique : tests d'intrusion, exploitation de vulnérabilités (OWASP Top 10) et forensic analysis. Vous manipulerez les outils professionnels (Kali Linux, Metasploit, Burp Suite) dans des laboratoires virtuels sécurisés. Les modules couvrent la cryptographie appliquée, la sécurisation des architectures cloud et les techniques de social engineering. Vous apprendrez à rédiger des rapports d'audit professionnels et à mettre en place des politiques de sécurité conformes aux standards ISO 27001. La formation inclut des simulations d'attaques réelles (ransomware, phishing) et leurs contre-mesures. Un focus particulier est mis sur la sécurité des applications web et mobiles avec des ateliers pratiques de sécurisation de code.",
+                image: "https://gomycode.com/tn/wp-content/uploads/sites/26/2023/09/Plan-de-travail-1-optimized.png"
+            },
+            {
+                id: 7,
+                name: "Cloud Computing & DevOps",
+                price: "270 TND",
+                description: "Cette formation vous préparera aux métiers du cloud et du DevOps avec une approche 100% pratique. Vous commencerez par maîtriser AWS (EC2, S3, RDS, Lambda) avant de découvrir Azure et Google Cloud Platform. Le cœur du programme porte sur l'automatisation avec Terraform, Ansible et les pipelines CI/CD (GitHub Actions, Jenkins). Vous apprendrez à containeriser des applications avec Docker, à les orchestrer avec Kubernetes et à monitorer des infrastructures avec Prometheus/Grafana. La formation couvre également les architectures serverless, les microservices et les patterns de résilience. Vous déploierez une application complète suivant les principes GitOps, avec tests automatisés et rollback stratégique. Des bonnes pratiques de sécurité cloud (IAM, chiffrement) et d'optimisation des coûts sont intégrées à chaque module. La formation prépare aux certifications AWS Cloud Practitioner et Kubernetes CKAD.",
+                image: "https://gomycode.com/tn/wp-content/uploads/sites/26/2023/04/ModelOps-Web-optimized.png"
+            },
+            {
+                id: 8,
+                name: "Intelligence Artificielle",
+                price: "290 TND",
+                description: "Plongez au cœur de l'intelligence artificielle moderne avec cette formation avancée combinant théorie et pratique intensive. Le programme couvre les algorithmes classiques de machine learning (forêts aléatoires, SVM) avant d'aborder en profondeur le deep learning avec TensorFlow et PyTorch. Vous travaillerez sur des architectures de réseaux de neurones (CNN, RNN, Transformers) appliquées à la vision par ordinateur et au NLP. La formation inclut des projets concrets comme un système de recommandation, un chatbot contextuel et un générateur d'images. Vous apprendrez à optimiser les modèles pour le déploiement en production (ONNX, TensorRT) et à les servir via des APIs avec FastAPI. Des modules spécialisés couvrent l'IA générative (GANs, diffusion models), le reinforcement learning et l'éthique en IA. La formation utilise des datasets industriels et prépare aux challenges Kaggle.",
+                image: "https://gomycode.com/tn/wp-content/uploads/sites/26/2023/04/gomytech_AI-1--1536x864-optimized.jpg"
+            },
+            {
+                id: 9,
+                name: "JavaScript Avancé",
+                price: "230 TND",
+                description: "Approfondissez votre maîtrise de JavaScript avec cette formation intensive couvrant les concepts avancés du langage. Vous explorerez les closures, le hoisting, le event loop et le prototypage en profondeur. La formation met l'accent sur les fonctionnalités ES6+ : classes, modules, promesses, async/await et les itérateurs/générateurs. Vous apprendrez les design patterns (Observer, Singleton, Factory) et les architectures frontend modernes. Un module complet est dédié à l'optimisation des performances (memoization, lazy loading, Web Workers). Vous implémenterez un framework frontend minimaliste pour comprendre les mécanismes sous-jacents de React. La formation inclut également des bonnes pratiques de test (Jest), de debugging avancé et de tooling (Webpack, Babel). Vous travaillerez sur plusieurs projets dont une application de streaming en temps réel avec WebSockets et une PWA (Progressive Web App) offline-first.",
+                image: "https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/97110319_2924230507668102_3809449594266320896_n.png?stp=dst-png_s960x960&_nc_cat=105&ccb=1-7&_nc_sid=0b6b33&_nc_ohc=_Q4DsyUSX5IQ7kNvwE7Lgf_&_nc_oc=AdkhC95W-lh2B8y1tAK-510ImhAp3cbOS9y0AZoF1ljW-hiYajRY_ZoQxA7JyvKj1Qg&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=prtTDklre9LXHszUhxbxtw&oh=00_AfItTupaHXMkA-2BSgRQW49UXS1FtNgftYkYzsZWMoOzlg&oe=6841E936"
+            },
+            {
+                id: 10,
+                name: "Python pour Débutants",
+                price: "180 TND",
+                description: "Découvrez la programmation avec Python, le langage idéal pour les débutants grâce à sa syntaxe claire et puissante. Cette formation couvre les fondamentaux : variables, structures de contrôle, fonctions et la programmation orientée objet. Vous manipulerez les structures de données natives (listes, dictionnaires) et découvrirez les modules de la bibliothèque standard pour travailler avec les fichiers, les dates et les requêtes HTTP. La formation inclut des projets ludiques comme un mini-jeu texte, un gestionnaire de tâches et un scraper web simple. Vous apprendrez à déboguer votre code efficacement et à écrire des tests unitaires. Des bonnes pratiques de style (PEP 8) et de documentation sont intégrées tout au long. La formation sert également de tremplin vers des spécialisations comme la data science, le web ou l'automatisation. Aucun prérequis en programmation n'est nécessaire.",
+                image: "https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/69752316_2398333850257773_1814528974236155904_n.png?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=0VabiT7YWNkQ7kNvwEbYBB4&_nc_oc=AdnZsesOI7wzgvhU1u-HcPszEnDqTRdGUWuaRp2Hbtx89pQ19YSKA5tnbcbKwBeXuqQ&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=BzBHPOD8HWQVrFkbxoms6g&oh=00_AfIWpAvDOCjdhN7UFH108ZOdlNoa3zRYj0PpbcM2c3U1ag&oe=6841E2DF"
+            },
+            {
+                id: 11,
+                name: "React.js",
+                price: "250 TND",
+                description: "Maîtrisez React.js, la bibliothèque JavaScript la plus populaire pour créer des interfaces utilisateur dynamiques et performantes. Cette formation couvre en profondeur les hooks (useState, useEffect, useContext), la gestion d'état avancée avec Redux Toolkit et le routage avec React Router. Vous apprendrez à structurer des applications complexes avec des patterns comme les Higher-Order Components et les Render Props. La formation inclut des modules sur les performances (memo, useCallback), les tests avec React Testing Library et l'intégration avec des APIs GraphQL. Vous travaillerez sur plusieurs projets dont un dashboard admin complet avec tableaux triables, formulaires complexes et authentification JWT. Un focus particulier est mis sur les bonnes pratiques d'accessibilité (a11y) et de responsive design. Vous découvrirez également les nouveautés comme React Server Components et Next.js pour le rendu côté serveur. La formation prépare aux questions techniques des entretiens frontend senior.",
+                image: "https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/41020257_1832982850126212_9218854963914997760_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=gDszyNSswl0Q7kNvwExjoDw&_nc_oc=AdnrBRtViEcZhcjdu8QHL4vUXc8kAe0kDv6NtwbW8bGO0r7CwGA6Og9FISJrc2YlGh0&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=JRjXwornQzT7Zo2cT3fxEA&oh=00_AfKjulgvgNZgIqmDObHB716m65-XPGxDwP30gh_w-mAr5g&oe=6841EAF3"
+            },
+            {
+                id: 12,
+                name: "Node.js & Express",
+                price: "240 TND",
+                description: "Devenez un développeur backend accompli avec cette formation complète sur Node.js et Express. Vous commencerez par maîtriser les fondamentaux de JavaScript côté serveur (event loop, streams, buffers) avant de plonger dans la création d'APIs RESTful robustes. La formation couvre en profondeur l'authentification (JWT, OAuth), la validation des données et la documentation avec Swagger. Vous apprendrez à travailler avec différentes bases de données (MongoDB avec Mongoose, PostgreSQL avec Sequelize) et à optimiser les performances (caching, clustering). Des modules avancés abordent les WebSockets pour les applications temps réel, le traitement des fichiers (upload, PDF generation) et la sécurisation des APIs. Vous implémenterez des microservices avec communication RabbitMQ et découvrirez les architectures serverless. La formation inclut le déploiement sur AWS/Heroku, le monitoring avec Prometheus et les bonnes pratiques pour les applications critiques. Vous construirez un backend complet pour une application de e-commerce avec paiement Stripe.",
+                image: "https://user-images.githubusercontent.com/97989643/224550089-f2541ade-c5c6-4afa-8538-51a8dda4e23b.gif"
+            },
+            {
+                id: 13,
+                name: "Git & GitHub",
+                price: "160 TND",
+                description: "Maîtrisez Git, le système de contrôle de version incontournable, et GitHub, la plateforme de collaboration des développeurs. Cette formation couvre tout le workflow Git : dépôts locaux et distants, branches, merges et résolution de conflits. Vous apprendrez les commandes essentielles et les bonnes pratiques pour des commits atomiques et des messages clairs. La formation inclut des modules avancés sur le rebasing interactif, les hooks Git, les submodules et les workflows d'équipe (Git Flow, GitHub Flow). Vous découvrirez les fonctionnalités professionnelles de GitHub : pull requests, code reviews, actions CI/CD, projets et wiki. Des ateliers pratiques simuleront des situations réelles de collaboration sur un projet open source. Vous apprendrez également à intégrer Git dans votre IDE et à utiliser Git en ligne de commande comme un pro. La formation aborde les alternatives comme GitLab et BitBucket, et prépare aux questions Git des entretiens techniques. Un focus particulier est mis sur la sécurisation de vos dépôts et la gestion des accès.",
+                image: "https://miro.medium.com/v2/resize:fit:1400/1*qwFrTMnFkcd3U9rFKwwacw.png"
+            },
+            {
+                id: 14,
+                name: "SQL & Bases de Données",
+                price: "200 TND",
+                description: "Devenez un expert en bases de données relationnelles avec cette formation complète sur SQL et l'administration de bases de données. Vous commencerez par les fondamentaux du langage SQL (SELECT, JOIN, sous-requêtes) avant d'aborder des concepts avancés comme les vues, les procédures stockées et les triggers. La formation couvre l'optimisation des requêtes (EXPLAIN, index) et la modélisation de bases de données normalisées. Vous travaillerez sur PostgreSQL et MySQL, avec des comparaisons des particularités de chaque SGBD. Des modules spécifiques abordent les transactions ACID, la réplication et les sauvegardes. Vous apprendrez à utiliser SQL depuis des applications Python et Node.js, et à travailler avec des ORMs tout en comprenant le SQL généré. La formation inclut des cas réels de migration de données, d'analyse de performances et de sécurisation des accès. Vous construirez un schéma complet pour une application de gestion d'école avec rapports complexes et historisation des données.",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPi8awD7KVVcu9VzDxXJCNtcOG9HhpHNbaIQ&s"
+            },
+            {
+                id: 15,
+                name: "Arduino et Electronique",
+                price: "220 TND",
+                description: "Découvrez l'électronique programmable avec cette formation pratique sur Arduino et les bases de l'électronique. Vous commencerez par les concepts fondamentaux (tension, courant, résistance) avant de passer à la programmation en C/C++ pour microcontrôleurs. La formation couvre en détail les capteurs (température, luminosité, mouvement), les actionneurs (moteurs, relais) et les modules courants (RFID, Bluetooth). Vous réaliserez plusieurs projets concrets : station météo connectée, système d'arrosage automatique, robot suiveur de ligne. Un module complet est dédié à la communication entre appareils (I2C, SPI, UART) et à l'Internet des Objets avec ESP8266. Vous apprendrez à lire des datasheets, à déboguer des circuits et à utiliser des outils comme les multimètres et les oscilloscopes. La formation inclut également des bonnes pratiques de prototypage (breadboard, PCB) et d'alimentation des circuits. Aucun prérequis en électronique n'est nécessaire, le matériel de base est fourni pour les travaux pratiques.",
+                image: "https://gomycode.com/dz/wp-content/uploads/sites/34/2023/04/cover-19-1-1-optimized.jpg"
+            },
+            {
+                id: 16,
+                name: "Robotique",
+                price: "270 TND",
+                description: "Plongez dans le monde passionnant de la robotique avec cette formation complète combinant mécanique, électronique et programmation. Vous commencerez par concevoir des robots simples avec des moteurs DC et servomoteurs, avant d'aborder des architectures plus complexes (robots mobiles, bras articulés). La formation couvre les capteurs essentiels (ultrasons, infrarouges, IMU) et les algorithmes de contrôle (PID, logique floue). Vous programmerez en Python et C++ sur des plateformes comme Raspberry Pi et Arduino, avec des modules sur ROS (Robot Operating System) pour les projets avancés. Vous travaillerez sur la vision par ordinateur (OpenCV) pour la reconnaissance d'objets et le suivi de ligne. La formation inclut des projets concrets comme un robot autonome éviteur d'obstacles, un bras robotisé avec contrôle gestuel et une voiture télécommandée intelligente. Des bonnes pratiques de simulation (Gazebo), de calibration et de sécurité sont intégrées. Vous apprendrez également les bases de la modélisation 3D pour les pièces personnalisées.",
+                image: "https://scontent.ftun9-1.fna.fbcdn.net/v/t39.30808-6/465151636_8591128557644907_1215333687814538651_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7lD_A-yBC04Q7kNvwFxXXf4&_nc_oc=AdlalINRBVlXKKO6hANUKxxIue9cJ2_ePIt1z1C74kd6LfATtUPOn5PeW9gS4a03Frk&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=DhAd-pDNmh0KG_gJ8yfh2w&oh=00_AfJPQnY1vlF5gA-ubpt15JzrKj2WK7326If57OJyqx3weA&oe=68204038"
+            },
+            {
+                id: 17,
+                name: "Développement WordPress",
+                price: "210 TND",
+                description: "Devenez un développeur WordPress expert avec cette formation complète allant de la création de thèmes sur mesure au développement de plugins avancés. Vous commencerez par maîtriser l'écosystème WordPress (hooks, template hierarchy, WP Query) avant de plonger dans le développement avec PHP objet et l'API REST. La formation couvre en profondeur les Custom Post Types, les metaboxes et les Gutenberg blocks avec React. Vous apprendrez à créer des thèmes performants et accessibles, à optimiser les temps de chargement et à sécuriser les installations. Un module complet est dédié à WooCommerce pour développer des solutions e-commerce personnalisées. Vous découvrirez également les bonnes pratiques de travail avec les builders comme Elementor et les outils de migration/staging. La formation inclut des techniques avancées comme la création d'APIs personnalisées, le traitement par lots et l'intégration avec des services externes. Vous construirez un site complet avec système de réservation personnalisé et tableau de bord analytique.",
+                image: "https://www.wppourlesnuls.com/wp-content/uploads/2019/05/wordpress.gif"
+            },
+            {
+                id: 18,
+                name: "Blockchain & Web3",
+                price: "290 TND",
+                description: "Explorez la révolution blockchain et Web3 avec cette formation technique complète. Vous commencerez par les fondamentaux des blockchains (consensus, hachage, cryptographie) avant de plonger dans le développement de smart contracts avec Solidity sur Ethereum. La formation couvre en profondeur les standards ERC (20, 721, 1155), les DApps (Decentralized Apps) et les protocoles DeFi. Vous apprendrez à utiliser Hardhat et Truffle pour le développement et les tests, et à interagir avec les contrats depuis des applications frontend avec Web3.js et Ethers.js. Des modules avancés abordent l'optimisation des coûts en gas, la sécurité des contrats (reentrancy, overflow) et les solutions de scaling (Layer 2, sidechains). Vous travaillerez sur des projets concrets comme un exchange décentralisé, un système de vote et un jeu NFT. La formation inclut également une introduction à IPFS, The Graph et aux wallets cryptos (Metamask). Vous découvrirez les écosystèmes alternatifs (Polygon, Solana) et les tendances émergentes comme les DAO et le Web3 social.",
+                image: "https://scontent.ftun9-1.fna.fbcdn.net/v/t1.6435-9/70668582_2412939125463912_5297973972162314240_n.png?stp=dst-png_s960x960&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=aVB6kJhi2MkQ7kNvwFl8lKX&_nc_oc=AdlGS1XUAKp9fNC-1KVG3-YG0BFh4p6tDrmEUv3wT9TCivlDTrtpBT2px2UH-OQC-mQ&_nc_zt=23&_nc_ht=scontent.ftun9-1.fna&_nc_gid=HEPycGJASOhQzeQdNkFF-g&oh=00_AfIq7bDuVLJEGmfEvnQMYywDvbFbMsdFbXHijF8Z31JjfA&oe=6841D373"
+            },
+            {
+                id: 19,
+                name: "Linux & Systèmes d'Exploitation",
+                price: "240 TND",
+                description: "Maîtrisez Linux et les systèmes d'exploitation avec cette formation complète allant des commandes de base à l'administration système avancée. Vous commencerez par apprivoiser le terminal avant d'aborder la gestion des utilisateurs, des permissions et des processus. La formation couvre en profondeur le système de fichiers, les scripts Bash avancés et l'automatisation avec cron. Vous apprendrez à configurer des services essentiels (SSH, Apache/Nginx, PostgreSQL) et à sécuriser un serveur (firewall, SELinux, audits). Des modules spécifiques abordent le monitoring (top, htop, sar), le troubleshooting et la récupération après crash. Vous pratiquerez sur des distributions professionnelles (Ubuntu Server, CentOS) et découvrirez les technologies conteneurisées (Docker, Podman). La formation inclut également une introduction au networking (TCP/IP, iptables) et au stockage (LVM, RAID). Vous configurerez un serveur complet avec virtualisation KVM, sauvegardes automatisées et supervision Nagios. Des bonnes pratiques pour le cloud (AWS EC2) et les certifications Linux (LPIC) sont intégrées.",
+                image: "https://gomycode.com/dz/wp-content/uploads/sites/34/2023/04/Linux-1--optimized.png"
+            },
+            {
+                id: 20,
+                name: "Développement Front-End",
+                price: "230 TND",
+                description: "Devenez un développeur front-end accompli avec cette formation complète couvrant toutes les technologies modernes du web. Vous commencerez par maîtriser HTML5 sémantique et CSS3 (Flexbox, Grid, animations) avant de plonger dans JavaScript moderne (ES6+). La formation couvre en profondeur les frameworks comme React et Vue.js, avec des modules sur le state management (Redux, Pinia) et le routing. Vous apprendrez à créer des interfaces accessibles (a11y) et responsive (mobile-first) avec des méthodologies comme BEM. Des outils essentiels sont enseignés : Sass, Webpack, Babel et les linters. La formation inclut des projets concrets comme une application de gestion de tâches avec drag-and-drop, un clone de Spotify et un portfolio interactif. Vous découvrirez également les Progressive Web Apps, les Web Components et les techniques d'optimisation des performances (lazy loading, code splitting). Des bonnes pratiques de tests (Jest, Cypress) et de collaboration (Git) sont intégrées tout au long du parcours.",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU4q8BRThdS68BVcNlbacwORu6ovNeqGfyIhXC8594OWHz64kFaIB8ZTy3Y0ogv7zPNOc&usqp=CAU"
+            },
+            {
+                id: 21,
+                name: "T-shirt GOMYCODE - Edition Limitée",
+                price: "55 TND",
+                description: "Porte fièrement les couleurs de GOMYCODE avec ce t-shirt noir en édition limitée ! Conçu pour représenter ta passion pour la tech et l’innovation, ce t-shirt est à la fois élégant et confortable. Son design minimaliste avec une touche de couleur sur le logo en fait une pièce unique. Idéal pour coder, enseigner ou simplement sortir avec style. Fais partie de la communauté, en exclusivité.",
+                image: "images/products/tshirt1.png"
+            },
+            {
+                id: 22,
+                name: "T-shirt GOMYCODE – Édition Étudiant",
+                price: "55 TND",
+                description: "Exprime ton esprit créatif et ton appartenance à la grande famille GOMYCODE avec ce t-shirt blanc conçu pour les étudiants passionnés. Léger, doux et ultra-confortable, il est parfait pour les journées intenses de formation comme pour les week-ends chill. Ce vêtement moderne te rappellera à chaque instant que tu fais partie d’une révolution éducative inspirante et internationale.",
+                image: "images/products/tshirt2.png"
+            },
+            {
+                id: 23,
+                name: "Stickers GOMYCODE - Edition Fun",
+                price: "15 TND",
+                description: "Personnalise ton ordinateur, carnet ou bureau avec cette collection exclusive de stickers GOMYCODE ! Pleine de couleurs, de fun et de clins d’œil geek, cette édition est idéale pour afficher fièrement ta passion pour le code et la technologie. Parfaits pour les étudiants créatifs, ces autocollants résistent à l’eau et aux rayures. Ajoute une touche unique à ton espace de travail !",
+                image: "https://mir-s3-cdn-cf.behance.net/projects/404/949143155416401.Y3JvcCw4MTYsNjM5LDI5MSww.jpg"
+            },
+            {
+                id: 24,
+                name: "Casquette GOMYCODE - Edition Étudiant",
+                price: "40 TND",
+                description: "Adopte un look dynamique et professionnel avec cette casquette noire stylée aux couleurs GOMYCODE. Confortable et ajustable, elle est idéale pour affronter les journées ensoleillées ou simplement compléter ta tenue tech. Le logo rouge distinctif en fait un accessoire audacieux et reconnaissable. Porte-la fièrement en bootcamp, en hackathon ou dans la rue : deviens l’ambassadeur de ta passion !",
+                image: "images/products/casquette.png"
+            }
+
+        ];
+
+        const params = new URLSearchParams(window.location.search);
+        const productId = parseInt(params.get("id"));
+        const product = products.find(p => p.id === productId);
+
+        if (product) {
+            document.getElementById("product-detail").innerHTML = `
+            <div class="product-image">
+              <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="product-info">
+              <h1>${product.name}</h1>
+              <div class="product-price">${product.price}</div>
+              <p>${product.description}</p>
+            </div>
+          `;
+        } else {
+            document.getElementById("product-detail").innerHTML = "<p>Produit introuvable.</p>";
+        }
+
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const carouselContainer = document.querySelector('.carousel-container');
+
+        let currentIndex = 0;
+        const totalItems = document.querySelectorAll('.review-item').length;
+        const itemsPerPage = 3;
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.autoplay').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: true,
+                arrows: false,
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html
