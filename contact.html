@@ -84,14 +84,15 @@
         </div>
     </section>
     <section id="form-details">
-        <form action="">
+        <form action="https://api.web3forms.com/submit" method="POST">
             <span>LAISSEZ UN MESSAGE</span>
             <h2>Nous aimons avoir vos retours</h2>
-            <input type="text" placeholder="Votre nom">
-            <input type="text" placeholder="E-mail">
-            <input type="text" placeholder="Sujet">
-            <textarea cols="30" rows="10" placeholder="Votre message"></textarea>
-            <button class="normal">Envoyer</button>
+            <input type="hidden" name="access_key" value="50cf7d94-29ba-45ee-b21f-064e1e14664d">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="text" name="subject" placeholder="Sujet" required>
+            <textarea name="message" cols="30" rows="10" placeholder="Votre message" required></textarea>
+            <button type="submit">Envoyer</button>
         </form>
         <div class="people">
             <div>
